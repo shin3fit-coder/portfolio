@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>ShinShin Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    // テーマ切り替え
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+
+    // テーマ復元
+    document.addEventListener('DOMContentLoaded', () => {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'light') {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
+</head>
+
+<body class="bg-gray-950 text-gray-200 dark:bg-gray-950 dark:text-gray-200 transition">
+
+  <div class="flex">
+
+    <!-- サイドメニュー（VIM3風） -->
+    <aside class="w-64 h-screen bg-gray-900 border-r border-gray-800 p-6 flex flex-col justify-between">
+
+      <div>
+        <h1 class="text-xl font-bold mb-8 text-white tracking-wide">
+          ShinShin Dashboard
+        </h1>
+
+        <nav>
+          <ul class="space-y-3">
+
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">Dashboard</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">System Info</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">ToDo Manager</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">Server Monitor</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">SSH Manager</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">Logs Viewer</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">Network</li>
+            <li class="p-3 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 transition">Settings</li>
+
+          </ul>
+        </nav>
+      </div>
+
+      <!-- テーマ切り替えボタン -->
+      <button onclick="toggleTheme()"
+        class="mt-6 w-full bg-gray-800 hover:bg-gray-700 text-white py-2 rounded-lg transition">
+        🌗 テーマ切り替え
+      </button>
+
+    </aside>
+
+    <!-- メインコンテンツ -->
+    <main class="flex-1 p-12">
+
+      <h2 class="text-4xl font-bold mb-6 text-white">
+        System Control Dashboard
+      </h2>
+
+      <p class="text-gray-400 leading-relaxed max-w-2xl">
+        VIM3 や Linux 環境向けに最適化された軽量管理ツールです。
+        ToDo 管理、サーバーステータス監視、SSH 管理など複数の機能を統合しています。
+      </p>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold text-white mb-2">ToDo Manager</h3>
+          <p class="text-gray-400 text-sm">軽量なタスク管理機能。SQLite を使用。</p>
+        </div>
+
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold text-white mb-2">Server Monitor</h3>
+          <p class="text-gray-400 text-sm">CPU / RAM / Disk のリアルタイム監視。</p>
+        </div>
+
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold text-white mb-2">SSH Manager</h3>
+          <p class="text-gray-400 text-sm">SSH 接続管理と認証設定。</p>
+        </div>
+
+        <div class="p-6 bg-gray-900 border border-gray-800 rounded-xl shadow hover:shadow-xl transition">
+          <h3 class="text-xl font-semibold text-white mb-2">Logs Viewer</h3>
+          <p class="text-gray-400 text-sm">システムログの閲覧とフィルタリング。</p>
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
